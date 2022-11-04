@@ -17,7 +17,7 @@ module "end_to_end_testing_repository" {
 
 resource "github_actions_secret" "end_to_end_testing_cloud_run_secrets" {
   for_each = {
-    "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
+    # "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
     "CLOUD_RUN_REGION"              = var.region
     "RUNTIME_SERVICE_ACCOUNT_EMAIL" = data.google_service_account.backend_runtime_sa.email
   }
