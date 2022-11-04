@@ -17,9 +17,10 @@ module "backend_repository" {
 
 resource "github_actions_secret" "service_cloud_run_secrets" {
   for_each = {
-    "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
+    # "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
     "CLOUD_RUN_REGION"              = var.region
     "RUNTIME_SERVICE_ACCOUNT_EMAIL" = data.google_service_account.backend_runtime_sa.email
+    # "SNYK_TOKEN"                    = var.snyk_token
   }
 
   repository      = module.backend_repository.name

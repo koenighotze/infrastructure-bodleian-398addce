@@ -66,3 +66,7 @@ variable "container_registry" {
   sensitive   = false
   description = "The container registry for OCI images"
 }
+
+# variable "snyk_token" {
+#   TODO
+# }
