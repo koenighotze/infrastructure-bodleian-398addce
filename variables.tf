@@ -67,6 +67,20 @@ variable "container_registry" {
   description = "The container registry for OCI images"
 }
 
-# variable "snyk_token" {
-#   TODO
-# }
+variable "snyk_token" {
+  type        = string
+  sensitive   = true
+  description = "The API token for Snyk"
+}
+
+variable "slack_webhook_url" {
+  type        = string
+  sensitive   = true
+  description = "The web hook for Slack"
+}
+
+variable "gitguardian_api_key" {
+  type        = string
+  sensitive   = true
+  description = "The API token for GitGuardian"
+}

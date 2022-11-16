@@ -7,24 +7,27 @@ on:
   workflow_dispatch:
 
 env:
-  TF_VAR_github_admin_token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
-  TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
-  TF_VAR_region: europe-west3
-  TF_VAR_backend_deployer_sa_email: ${{ secrets.BACKEND_DEPLOYER_SA_EMAIL }}
-  TF_VAR_backend_runtime_sa_email: ${{ secrets.BACKEND_RUNTIME_SA_EMAIL }}
-  TF_VAR_terraform_state_bucket: ${{ secrets.TERRAFORM_STATE_BUCKET }}
-  TF_VAR_location: "europe-west3"
-  TF_VAR_github_api_label_token: ${{ secrets.GH_TOKEN_FOR_LABELING }}
-  TF_VAR_workload_identity_provider_name: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
-  TF_VAR_workload_identity_pool_id: ${{ secrets.WORKLOAD_IDENTITY_POOL_ID }}
-  TF_VAR_codacy_api_token: ${{ secrets.CODACY_API_TOKEN }}
-  TF_VAR_docker_registry_username: ""
-  TF_VAR_docker_registry_token: ""
-  TF_VAR_container_registry: ${{ secrets.CONTAINER_REGISTRY }}
   TF_IN_AUTOMATION: "true"
   TF_INPUT: "false"
-  GITHUB_TOKEN: "${{ secrets.ADMIN_GITHUB_TOKEN }}"
+  TF_VAR_backend_deployer_sa_email: ${{ secrets.BACKEND_DEPLOYER_SA_EMAIL }}
+  TF_VAR_backend_runtime_sa_email: ${{ secrets.BACKEND_RUNTIME_SA_EMAIL }}
+  TF_VAR_codacy_api_token: ${{ secrets.CODACY_API_TOKEN }}
+  TF_VAR_container_registry: ${{ secrets.CONTAINER_REGISTRY }}
+  TF_VAR_docker_registry_token: ""
+  TF_VAR_docker_registry_username: ""
+  TF_VAR_gitguardian_api_key: ${{ secrets.GITGUARDIAN_API_KEY }}
+  TF_VAR_github_admin_token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+  TF_VAR_github_api_label_token: ${{ secrets.GH_TOKEN_FOR_LABELING }}
+  TF_VAR_location: "europe-west3"
+  TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+  TF_VAR_region: "europe-west3"
+  TF_VAR_slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+  TF_VAR_snyk_token: ${{ secrets.SNYK_TOKEN }}
+  TF_VAR_terraform_state_bucket: ${{ secrets.TERRAFORM_STATE_BUCKET }}
+  TF_VAR_workload_identity_pool_id: ${{ secrets.WORKLOAD_IDENTITY_POOL_ID }}
+  TF_VAR_workload_identity_provider_name: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
   CLOUDSDK_CORE_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
+  GITHUB_TOKEN: "${{ secrets.ADMIN_GITHUB_TOKEN }}"
 
 permissions:
   id-token: write

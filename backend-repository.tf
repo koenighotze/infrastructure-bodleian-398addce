@@ -18,10 +18,12 @@ module "backend_repository" {
 resource "github_actions_secret" "service_cloud_run_secrets" {
   for_each = {
     "CLOUD_RUN_BACKEND_URL"         = google_cloud_run_service.backend.status[0].url
-    "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
     "CLOUD_RUN_REGION"              = var.region
+    "CLOUD_RUN_SERVICE"             = google_cloud_run_service.backend.name
+    "GITGUARDIAN_API_KEY"           = var.gitguardian_api_key
     "RUNTIME_SERVICE_ACCOUNT_EMAIL" = data.google_service_account.backend_runtime_sa.email
-    # "SNYK_TOKEN"                    = var.snyk_token
+    "SLACK_WEBHOOK_URL"             = var.slack_webhook_url
+    "SNYK_TOKEN"                    = var.snyk_token
   }
 
   repository      = module.backend_repository.name
