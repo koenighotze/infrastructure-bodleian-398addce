@@ -27,9 +27,6 @@ resource "google_cloud_run_service" "frontend" {
       "application" = "bodleian"
       "stage"       = "dev"
     }
-    annotations = {
-      "autoscaling.knative.dev/maxScale" = "3"
-    }
   }
 
   lifecycle {
