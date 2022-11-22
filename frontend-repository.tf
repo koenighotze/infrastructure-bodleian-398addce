@@ -14,3 +14,20 @@ module "frontend_repository" {
   terraform_state_bucket          = var.terraform_state_bucket
   container_registry              = var.container_registry
 }
+
+resource "github_actions_secret" "frontend_repository_secrets" {
+  for_each = {
+    "CLOUD_RUN_FRONTEND_URL"        = google_cloud_run_service.frontend.status[0].url
+    "CLOUD_RUN_REGION"              = var.region
+    "CLOUD_RUN_SERVICE"             = google_cloud_run_service.frontend.name
+    "GITGUARDIAN_API_KEY"           = var.gitguardian_api_key
+    "RUNTIME_SERVICE_ACCOUNT_EMAIL" = data.google_service_account.frontend_runtime_sa.email
+    "SLACK_WEBHOOK_URL"             = var.slack_webhook_url
+    "SNYK_TOKEN"                    = var.snyk_token
+  }
+
+  repository      = module.frontend_repository.name
+  secret_name     = each.key
+  plaintext_value = each.value
+}
+
