@@ -121,7 +121,7 @@ jobs:
       - name: Plan
         run: terraform plan -no-color
       - name: Report Status
-        uses: ravsamhq/notify-slack-action@v2
+        uses: ravsamhq/notify-slack-action@2.4.0
         if: always()
         with:
           status: ${{ job.status }}
