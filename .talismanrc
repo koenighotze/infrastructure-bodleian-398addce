@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: .github/workflows/plan.yml
+  checksum: bf6485a13ffbb303141bf94042227ea60ea185fdb12c26fbbd2d4be2817528a4
 - filename: .github/workflows/destroy.yml
   checksum: 3808506b34d4c62b4db1fdaa48ad3b5896259385158ff02790a95871f5a630bb
 - filename: .github/workflows/receive-pull-request.yml
