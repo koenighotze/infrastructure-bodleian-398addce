@@ -51,6 +51,7 @@ jobs:
 
   compliance-scan:
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,7 +61,8 @@ jobs:
         with:
           framework: terraform
           # we are fine with Google's Keys
-          skip_check: CKV_GCP_84,CKV_GIT_4
+          # we are fine with basic roles (no org), we are fine with our own module
+          skip_check: CKV_GCP_84,CKV_GIT_4,CKV_GCP_117,CKV_TF_1
           output_format: cli
           download_external_modules: true
 
@@ -73,6 +75,7 @@ jobs:
 
   qa:
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -100,6 +103,7 @@ jobs:
       - lint
 
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
