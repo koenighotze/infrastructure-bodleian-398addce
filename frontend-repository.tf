@@ -1,3 +1,4 @@
+#checkov:skip=CKV_TF_2:No version for the module ref.
 module "frontend_repository" {
   source = "github.com/koenighotze/gcp-tf-modules/github-repository"
 
