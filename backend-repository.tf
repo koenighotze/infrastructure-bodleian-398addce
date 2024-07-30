@@ -1,5 +1,6 @@
-#checkov:skip=CKV_TF_2:No version for the module ref.
 module "backend_repository" {
+  #checkov:skip=CKV_TF_1:No sha for the module ref.
+  #checkov:skip=CKV_TF_2:No version for the module ref.
   source = "github.com/koenighotze/gcp-tf-modules/github-repository"
 
   target_repository_name          = "bodleian-service"
@@ -16,6 +17,7 @@ module "backend_repository" {
   container_registry              = var.container_registry
 }
 
+#checkov:skip=CKV_GIT_4:Secrets are allowed in the state.
 resource "github_actions_secret" "service_cloud_run_secrets" {
   for_each = {
     "CLOUD_RUN_BACKEND_URL"         = google_cloud_run_service.backend.status[0].url
@@ -27,7 +29,8 @@ resource "github_actions_secret" "service_cloud_run_secrets" {
     "SNYK_TOKEN"                    = var.snyk_token
   }
 
-  repository      = module.backend_repository.name
-  secret_name     = each.key
+  repository  = module.backend_repository.name
+  secret_name = each.key
+  #checkov:skip=CKV_GIT_4:Secrets are allowed in the state.
   plaintext_value = each.value
 }

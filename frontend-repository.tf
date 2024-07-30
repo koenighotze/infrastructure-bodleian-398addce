@@ -1,5 +1,6 @@
-#checkov:skip=CKV_TF_2:No version for the module ref.
 module "frontend_repository" {
+  #checkov:skip=CKV_TF_1:No sha for the module ref.
+  #checkov:skip=CKV_TF_2:No version for the module ref.
   source = "github.com/koenighotze/gcp-tf-modules/github-repository"
 
   target_repository_name          = "bodleian-frontend"
@@ -27,8 +28,9 @@ resource "github_actions_secret" "frontend_repository_secrets" {
     "SNYK_TOKEN"                    = var.snyk_token
   }
 
-  repository      = module.frontend_repository.name
-  secret_name     = each.key
+  repository  = module.frontend_repository.name
+  secret_name = each.key
+  #checkov:skip=CKV_GIT_4:Secrets are allowed in the state.
   plaintext_value = each.value
 }
 

@@ -1,5 +1,6 @@
-#checkov:skip=CKV_TF_2:No version for the module ref.
 module "end_to_end_testing_repository" {
+  #checkov:skip=CKV_TF_1:No sha for the module ref.
+  #checkov:skip=CKV_TF_2:No version for the module ref.
   source = "github.com/koenighotze/gcp-tf-modules/github-repository"
 
   target_repository_name          = "bodleian-end-to-end-testing"
@@ -23,7 +24,8 @@ resource "github_actions_secret" "end_to_end_testing_cloud_run_secrets" {
     "RUNTIME_SERVICE_ACCOUNT_EMAIL" = data.google_service_account.backend_runtime_sa.email
   }
 
-  repository      = module.end_to_end_testing_repository.name
-  secret_name     = each.key
+  repository  = module.end_to_end_testing_repository.name
+  secret_name = each.key
+  #checkov:skip=CKV_GIT_4:Secrets are allowed in the state.
   plaintext_value = each.value
 }
