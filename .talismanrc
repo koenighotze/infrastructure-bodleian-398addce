@@ -1,4 +1,10 @@
 fileignoreconfig:
+- filename: frontend-repository.tf
+  checksum: a297a7f086e09907e0e204242602eb55a45bbaf88de815062fe52f6370acb714
+- filename: backend-repository.tf
+  checksum: 627990ba1109c440758f66e878946087638f0fdaefcde72f3f3e9d63d4323b3c
+- filename: end-to-end-testing-repository.tf
+  checksum: ce8751a879057d32b698ae671e4dfd0b89e14d156ccfb09728dc106459853681
 - filename: .github/workflows/plan.yml
   checksum: bf6485a13ffbb303141bf94042227ea60ea185fdb12c26fbbd2d4be2817528a4
 - filename: .github/workflows/destroy.yml
