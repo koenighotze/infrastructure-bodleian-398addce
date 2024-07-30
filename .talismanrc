@@ -7,4 +7,10 @@ fileignoreconfig:
   checksum: 098dc05ee23a5e5b35e65209d03f597ee1ce051332acc4fb2a388155eb62563e
 - filename: .github/workflows/plan.yml
   checksum: 57e41c13360f2a1c830f6cecfe41d1036ae194cd604d1f0a90ca774cd7f85912
+- filename: end-to-end-testing-repository.tf
+  checksum: ddb762c461f453a73899982ede3f2884298259ad61bde62ab244079977254695
+- filename: backend-repository.tf
+  checksum: e8a32ef03619b674b8f17b52d072e3d2709e925c4a9737c661ef4be6e1db1c29
+- filename: frontend-repository.tf
+  checksum: 332840d3562dc31513aff1676845e20e08adb9c3e070bbe7232f9b97e9e90fdb
 version: ""
